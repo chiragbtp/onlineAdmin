@@ -1,0 +1,154 @@
+
+<notifier-container></notifier-container>
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger row">
+                      <h4  class="card-title col-md-9 ">NewsLetter</h4>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                <th>
+                                  S.No
+                                  </th>
+                                  <th>
+                                  Email
+                                  </th>
+                                  <th  colspan="3" >
+                                   Action
+                                  </th>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let item of newsLetter.data  ; let i= index; " >
+                                        <td>
+                                          {{ i+1  }} 
+                                        </td>
+                                      <td>
+                                        {{ item.email  }} 
+                                      </td>
+  
+                                  
+                                    <td>
+                                        <a class="delete" title="Delete" data-toggle="modal"  (click) = "remove(item.id)" ><i class="material-icons"></i></a>
+                                    </td>
+                                  </tr>
+                                 
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- edit model -->
+<!-- 
+<ng-template #exampleModal let-modal>
+  <div class="modal-header">
+   <h5 class="modal-title" id="editProfileLabel">Edit CmsPages</h5>
+   <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Title</label>
+          <input type="text" class="form-control"  placeholder="title"formControlName="title" id="title" >
+        </div>
+        <div class="form-group  col-md-6">
+
+          <label for="website">Status</label>
+              <select formControlName="status" class="form-control" (change)="changeStatus($event)">
+                <option  value="A">Active</option>
+                <option  value="I">InActive</option>
+              </select>
+            </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="inputAddress">Description</label>
+        <editor formControlName="description" id="description"
+        tinymce.init="{
+          height: 400,
+          menubar: false,
+          forced_root_block: '',         
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+          ],
+          toolbar:
+            'undo redo | formatselect | bold italic backcolor | \
+            alignleft aligncenter alignright alignjustify | \
+            bullist numlist outdent indent | removeformat | help'
+        }"
+           ></editor>
+      </div>
+</form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary"  #closebutton  (click)="modal.dismiss()" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-success" (click)="save()">Save</button>
+    </div>
+  </div>
+ </ng-template> -->
+
+
+ <!-- view model -->
+ <!-- <ng-template #exampleModalview let-modal>
+  <div class="modal-header">
+   <h5 class="modal-title" id="editProfileLabel">View CmsPages</h5>
+   <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Title</label>
+          <input type="text" class="form-control"  placeholder="title"formControlName="title" id="title" disabled>
+        </div>
+        <div class="form-group  col-md-6">
+
+          <label for="website">Status</label>
+              <select formControlName="status" class="form-control" (change)="changeStatus($event)" disabled>
+                <option  value="A">Active</option>
+                <option  value="I">InActive</option>
+              </select>
+            </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="inputAddress">Description</label>
+        <editor formControlName="description" id="description" [disabled]="disabled"
+        tinymce.init="{
+          height: 400,
+          readonly : 1
+          menubar: false,
+          forced_root_block: '',         
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+          ],
+          toolbar:
+            'undo redo | formatselect | bold italic backcolor | \
+            alignleft aligncenter alignright alignjustify | \
+            bullist numlist outdent indent | removeformat | help'
+        }"
+           ></editor>
+      </div>
+</form>
+  </div>
+ </ng-template> -->
+
+

@@ -1,0 +1,250 @@
+
+<notifier-container></notifier-container>
+
+
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Queries</h4>
+                  </div>
+                  <!-- <div *ngIf="success" class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Successfully Deleted  </strong>  
+                  </div>    -->
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                               
+                                  <th>
+                                    Full Name
+                                  </th>
+                                  <th>
+                                    Phone
+                                  </th>
+                                  <th>
+                                    Email
+                                  </th>
+                                  <th>
+                                    SkypeId
+                                  </th>
+                                  <th  colspan="3" >
+                                      Action
+                                  </th>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let item of items.data ; let i= index; " >
+                                    
+                                      <td>
+                                        {{ item.full_name  }} 
+                                      </td>
+                                      <td>
+                                        {{ item.phone }}
+                                      </td>
+                                      <td>
+                                        {{ item.email }}
+                                      </td>
+                                      <td>
+                                        {{ item.skype_id }}
+                                      </td>
+                                      
+                                      
+                                      <td>
+                                        <a class="view" title="View" data-toggle="modal" (click) = "view(exampleModalview,item)" ><i class="material-icons">visibility</i></a>                                   
+                                    </td>
+                                      <td>
+                                        <a class="edit" title="Edit" data-toggle="modal"  (click) = "edit(exampleModal,item)"><i class="material-icons"></i></a>
+                                   
+                                    </td>
+                                    <td>
+                                        <a class="delete" title="Delete" data-toggle="modal"  (click) = "remove(item.id)"><i class="material-icons"></i></a>
+                                    </td>
+                                  </tr>
+                                 
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+  
+  <!--Delete  Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h5 class="modal-title text-center" id="exampleModalLongTitle" >Are you sure?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+            Do you really want to delete these records?
+                </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- edit model -->
+
+<ng-template #exampleModal let-modal>
+  <div class="modal-header">
+   <h5 class="modal-title" id="editProfileLabel">Edit Queries</h5>
+   <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  
+  <div class="modal-body">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Full Name</label>
+          <input type="text" class="form-control"  placeholder="fullname"formControlName="fullname" id="fullname" >
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Phone</label>
+          <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="phone" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Email</label>
+        <input type="text" class="form-control" formControlName="email" id="email" placeholder="Email" >
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputCity">SkypeId</label>
+          <input type="text" class="form-control" formControlName="skype" id="skype" >
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Date to Live</label>
+          <input type="text" class="form-control" formControlName="date" id="date" >
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputZip">Target Market</label>
+          <input type="text" class="form-control" formControlName="market" id="market" >
+        </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputCity">Target Processing</label>
+            <input type="text" class="form-control" formControlName="target" id="target" >
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Referring Agent</label>
+            <input type="text" class="form-control" formControlName="agent" id="agent" >
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Company Name</label>
+            <input type="text" class="form-control" formControlName="company" id="company" >
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputCity">Country</label>
+            <input type="text" class="form-control" formControlName="country" id="country" >
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Industry</label>
+            <input type="text" class="form-control" formControlName="industry" id="industry" >
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Volume Per Month</label>
+            <input type="number" class="form-control" formControlName="vol" id="vol" >
+          </div>
+        </div> 
+     
+    </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary"  #closebutton  (click)="modal.dismiss()" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-success" (click)="save()">Save</button>
+    </div>
+  </div>
+ </ng-template>
+
+<!-- view model -->
+
+<ng-template #exampleModalview let-modal>
+  <div class="modal-header">
+   <h5 class="modal-title" id="editProfileLabel">View Queries</h5>
+   <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  
+  <div class="modal-body">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Full Name</label>
+          <input type="text" class="form-control"  placeholder="Email"formControlName="fullname" id="fullname" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Phone</label>
+          <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="phone" disabled>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Email</label>
+        <input type="text" class="form-control" formControlName="email" id="email" placeholder="Email" disabled>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputCity">SkypeId</label>
+          <input type="text" class="form-control" formControlName="skype" id="skype" disabled>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Date to Live</label>
+          <input type="text" class="form-control" formControlName="date" id="date" disabled>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputZip">Target Market</label>
+          <input type="text" class="form-control" formControlName="market" id="market" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputCity">Target Processing</label>
+            <input type="text" class="form-control" formControlName="target" id="target" disabled>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Referring Agent</label>
+            <input type="text" class="form-control" formControlName="agent" id="agent" disabled>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Company Name</label>
+            <input type="text" class="form-control" formControlName="company" id="company" disabled>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputCity">Country</label>
+            <input type="text" class="form-control" formControlName="country" id="country" disabled>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Industry</label>
+            <input type="text" class="form-control" formControlName="industry" id="industry" disabled>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Volume Per Month</label>
+            <input type="number" class="form-control" formControlName="vol" id="vol" disabled>
+          </div>
+        </div> 
+     
+    </form>
+  </div>
+ </ng-template>
+
